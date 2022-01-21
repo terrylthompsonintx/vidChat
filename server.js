@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const PORT = process.env.PORT || 3030;
 const server = require("http").Server(app);
 const { v4: uuidv4 } = require("uuid");
 app.set("view engine", "ejs");
@@ -34,4 +35,5 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(process.env.PORT || 3030);
+// server.listen(process.env.PORT || 3030);
+app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
